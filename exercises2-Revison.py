@@ -53,7 +53,7 @@ else:
 	print("No")
 
 days = int(input("How many days in one year?"))
-if days == "365":
+if days == 365:
 	print("Nice")
 	score = score + 1
 else:
@@ -76,7 +76,7 @@ else:
 
 
 print("your score is",score)
-print(f"you got, %s questions right!"%score)
+print("you got, %s questions right!"%score)
 
 
 
