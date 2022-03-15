@@ -58,3 +58,4 @@ if user_fruit != "":
 user_fruit= input("Add a fruit")
 if user_fruit != "":
 	fruit.append(user_fruit)
+	
