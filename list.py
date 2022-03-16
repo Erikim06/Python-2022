@@ -41,7 +41,7 @@ pizza= input("Add a pizza topping")
 if pizza != "":
 	pizza_toppings.append(pizza)
 print(pizza_toppings)	
-
+"""
 fruit= ["mango", "grape", "melon", "apple", "plum" ]
 user_fruit= input("Add a fruit")
 if user_fruit != "":
@@ -58,7 +58,13 @@ if user_fruit != "":
 user_fruit= input("Add a fruit")
 if user_fruit != "":
 	fruit.append(user_fruit)
+<<<<<<< Updated upstream
 print(fruit)
 """
 sport=["soccer, badminton, table tennis"]
 print("table tennis, badminton, soccer")	
+
+
+
+	
+>>>>>>> Stashed changes
