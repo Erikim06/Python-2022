@@ -29,9 +29,15 @@ if user_heard == "yes":
 	print(" You must be a fan")
 else:
 	print("tale of Darvh Plagueis the Wise")
-"""
+
 Director =input("who is the director of Passion of the Christ?") #6
 if Director == "Mel Gibson":
 	print("Correct")
 else:
 	print("unlucky")
+
+"""
+Score == 0
+input("what is the capital city of France?") #7
+if Score == "Paris" or Score = "paris":
+	

@@ -20,7 +20,7 @@ books.append("Lee Child")
 books.append("The room")
 books.append("The kite runner")
 print(books)
-"""
+
 pizza_toppings= []
 pizza= input("Add a pizza topping") #6
 if pizza != "":
@@ -41,7 +41,7 @@ pizza= input("Add a pizza topping")
 if pizza != "":
 	pizza_toppings.append(pizza)
 print(pizza_toppings)	
-
+"""
 fruit= ["mango", "grape", "melon", "apple", "plum" ]
 user_fruit= input("Add a fruit")
 if user_fruit != "":
