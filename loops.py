@@ -1,28 +1,24 @@
-"""
-topping_count=0
-topping_count= False
-topping = input("Add a topping")
-topping_count= (topping_count+1)
-if topping_count == 6
-topping_count = True
-
-
-"""
+print("Hi, welcome to the ice cream maker!")
 order_complete = False
-toppings_available=['vanilla', 'strawberry', 'chocolate', 'sprinkles', 'nuts', 'raisins', 'chocolate sauce', 'flake','m&ms']
 toppings_list = []
-print(toppings_available)
-print("you are only able to order the toppings from the list")
+topping_count = 0
+toppings_available = {"Vanilla", "strawberry", "chocolate", "sprintcles","nuts", "raisins", "chocolate source", "flake", "m&ms"}
+
 while order_complete == False:
-	toppings= input("Pick from the list")
-	if toppings != "":
-		print("good choice")
-		order_complete = True
+	topping = input(f"choose from this list of toppings. \n {toppings_available}\n")
+	if topping_count >=6
+	    print("order done")
+	    order complete = True
+	elif topping.lower() not in toppings_available:
+		print("That is not available")
+	elif topping.lower() in toppings_list:
+		print("you already have that topping")
 	else:
-		print("not available")
-		toppings_list.append(toppings)
+		print("Great, it's in the list")
+		topping_count += 1
+		toppings_list.append(topping)
+print("Here are your toppings")
+print(",". join(toppings_list))
 
-print(toppings_list)
-
-
+print("\n")
 
