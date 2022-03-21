@@ -1,4 +1,9 @@
 from adventurelib import *
+
+carge = Room("""Where the car is.""")
+
+
+
 space = Room(""" 
 	You are drifting in space. It feels very cold.
 	A slate-blue spaceship sits completely silently to your left,
