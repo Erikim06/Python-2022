@@ -2,7 +2,7 @@ from adventurelib import *
 
 Room.items = Bag()
 
-carge = Room("""Where the car is.""")
+cargo = Room("""Where the car is.""")
 
 docking = Room("""The room for farming ducks""")
 
@@ -45,15 +45,52 @@ knife.description = "the knife has a dull sheen to it but it looks rather sharp.
 red_keycard = Item("a red keycard","keycard","red card","red carde")
 red_keycard.description = "It's a red keycard"
 
-key = item("a silver key")
+key = Item("a silver key")
 key.description = "normal key"
+
+lamp = Item("a clean lamp")
+lamp.description = "New lamp"
 
 current_room = space
 inventory = Bag()
 
 mess_hall.items.add(red_keycard)
 cargo.items.add(knife)
-Quarters.items.add(key)
+quarters.items.add(key)
+bridge.items.add(lamp)
+
+
+
+@when("inventory")
+@when("show inventory")
+@when("what is in my pocket")
+def player_inventory():
+	print("You are carrying")
+	for item in inventory:
+		print(item)
+
+@when("look at ITEM")
+def look_at(item):
+	if item in inventory:
+		t = inventory.find(item)
+		print(t.description)
+	else:
+		print(f"you aren't carrying an {item}")
+
+
+
+
+@when("get ITEM")
+@when("take ITEM")
+@when("pick up ITEM")
+def pickup(item):
+	if item in current_room.items:
+		t = current_room.take(item)
+		inventory.add(t)
+		print(f"You pick up the {itme}")
+	else:
+		print(f"you don't see a {item}")
+
 
 @when ("go DIRECTION")
 def travel(direction):
@@ -75,6 +112,7 @@ def look():
 
 
 current_room = space
+
 @when("enter airlock")
 @when("enter spaceship")
 @when("enter ship")
