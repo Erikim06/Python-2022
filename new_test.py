@@ -2,19 +2,19 @@ from adventurelib import *
 
 Room.items = Bag()
 
-cargo = Room("""Where the car is.""")
+cargo = Room("""Where the car is. cargo""")
 
 docking = Room("""The room for farming ducks""")
 
 hallway = Room("""Dark old hallway""")
 
-bridge = Room("""Where everyone gathers""")
+bridge = Room("""The bridge, where everyone gathers""")
 
-quarters = Room("""Where people sleep""")
+quarters = Room("""Quarters where people sleep""")
 
-mess_hall = Room("""Where people eat something""")
+mess_hall = Room("""Mess_hall, where people eat something""")
 
-escape_pods = Room("""Where people escape the spaceship""")
+escape_pods = Room("""escape_pods ,where people escape the spaceship""")
  
 space = Room(""" 
 	You are drifting in space. It feels very cold.
@@ -34,7 +34,7 @@ hallway.north = cargo
 hallway.south = mess_hall
 cargo.east = docking
 bridge.south = escape_pods
-
+space.east = cargo
 
 
 Item.description = ""
@@ -51,15 +51,15 @@ key.description = "normal key"
 lamp = Item("a clean lamp")
 lamp.description = "New lamp"
 
-current_room = space
-inventory = Bag()
+
 
 mess_hall.items.add(red_keycard)
 cargo.items.add(knife)
 quarters.items.add(key)
 bridge.items.add(lamp)
 
-
+current_room = space
+inventory = Bag()
 
 @when("inventory")
 @when("show inventory")
@@ -85,9 +85,9 @@ def look_at(item):
 @when("pick up ITEM")
 def pickup(item):
 	if item in current_room.items:
-		t = current_room.take(item)
+		t = current_room.items.take(item)
 		inventory.add(t)
-		print(f"You pick up the {itme}")
+		print(f"You pick up the {item}")
 	else:
 		print(f"you don't see a {item}")
 
@@ -95,7 +95,7 @@ def pickup(item):
 @when ("go DIRECTION")
 def travel(direction):
 	global current_room
-	if direction in current_room.exists():
+	if direction in current_room.exits():
 		current_room = current_room.exit(direction)
 		print(f"you go {direction}.")
 		print(current_room)
@@ -103,15 +103,15 @@ def travel(direction):
 
 @when("look")
 def look():
-	print(cuurent_room)
+	print(current_room)
 	print(f"There are exits to the {current_room.exits()}.")
 	if len(current_room.items) > 0:
 	    print("You also see:")
-	    for item in cuurent_room.items:
+	    for item in current_room.items:
 	    	print(item)
 
 
-current_room = space
+
 
 @when("enter airlock")
 @when("enter spaceship")
