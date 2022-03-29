@@ -2,14 +2,14 @@ from adventurelib import *
 
 Room.items = Bag()
 
-room1 = Room("You are awake in this bedroom, it's old, dark abondened room. You can get the key in this room ")
-room2 = Room("The room2 is locked. You have to use the item to unlock it. When you get there you may get chain saw ")
-kitchen = Room("The kitchen is is very simple and eveything is dark, you can get the key there.")
-room3 = Room("The room3 is very small and there are nothing in there.")
-room4 = Room("The room4 is a living room and you need the key from the Room1 to open the secret room")
-corridor = Room("Corridor is where the front door is, get all the items and try to unlock.")
-prison = Room("The prison is just horrible, there are bonds everywhere and the weapons. You can get the hammer ")
-master_room = Room("master room is look alright and you can get the driver from there")
+room1 = Room("""You are awake in this bedroom, it's old, dark abondened room. You can get the key in this room """)
+room2 = Room("""The room2 is locked. You have to use the item to unlock it. When you get there you may get chain saw """)
+kitchen = Room("""The kitchen is is very simple and eveything is dark, you can get the key there.""")
+room3 = Room("""The room3 is very small and there are nothing in there.""")
+room4 = Room("""The room4 is a living room and you need the key from the Room1 to open the secret room""")
+corridor = Room("""Corridor is where the front door is, get all the items and try to unlock.""")
+prison = Room("""The prison is just horrible, there are bonds everywhere and the weapons. You can get the hammer """)
+master_room = Room("""master room is look alright and you can get the driver from there""")
 
 
 room2.north = corridor
@@ -38,7 +38,49 @@ chain_saw = Item("The chain saw")
 cahin_saw.description = "it is for unlock the front door"
 
 flare_gun = Item("Flare gun")
-flare_gun.description= "You have to shoot the flare gun for help."
+flare_gun.description= "You have to shoot the flare gun for help after you escape."
+
+
+room1.items.add(key1)
+room2.items.add(chain_saw)
+kitchen.items.add(key2)
+master_room.add(driver)
+prison.items.add(locked)
+room4.add(flare_gun)
+
+
+
+current_room = space
+inventory = Bag()
+
+@when("get ITEM")
+@when("take ITEM")
+@when("pick up ITEM")
+def = pickup(item):
+	if current_room = 
+
+
+
+@when("look at ITEM")
+@when("my Item")
+def look_at(item):
+	if item in inventory:
+		t = inventory.find(item)
+		print(t.description)
+	else:
+		print(f"you aren't carrying an {item}")
+
+@when("inventory")
+@when("show inventory")
+@when("what is in my pocket")
+def player_inventory():
+	print("You are carrying")
+	for item in inventory:
+		print(item)
+
+
+print()
+
 def main():
 	start()
 
