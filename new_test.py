@@ -58,7 +58,7 @@ cargo.items.add(knife)
 quarters.items.add(key)
 bridge.items.add(lamp)
 
-current_room = space
+current_room = ""
 inventory = Bag()
 
 @when("inventory")
@@ -87,7 +87,7 @@ def pickup(item):
 	if item in current_room.items:
 		t = current_room.items.take(item)
 		inventory.add(t)
-		print(f"You pick up the {item}")
+		print(f"You pick up the {item}")brush
 	else:
 		print(f"you don't see a {item}")
 
