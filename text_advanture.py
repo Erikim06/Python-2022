@@ -45,20 +45,56 @@ flare_gun.description= "You have to shoot the flare gun for help after you escap
 room1.items.add(key1)
 room2.items.add(chain_saw)
 kitchen.items.add(key2)
-master_room.add(driver)
-prison.items.add(locked)
-room4.add(flare_gun)
+master_room.items.add(driver)
+prison.items.add(hammer)
+room4.items.add(flare_gun)
 
 
 if current_room = room2 and item = key1
 
-current_room = space
+current_room = room1
 inventory = Bag()
 
+@when("enter room2")
+@when("go to room2")
+@when("go inside the room2")
+@when("go to the room2")
+def enter_house():
+	global current_rooms
+	if current_room is not room1:
+		print("These is no room2")
+		return
+	elif key1 is not in player_inventory
+	    print("you need the key1 to enter the room2")
+	    return
+	else:
+		current_room = room2
+		print("You unlocked the door")
+		print(current_room)
 
-@when("use chain saw")
+
+@when("enter living room")
+@when("go to living room")
+@when("go inside the living room")
+@when("go to the living room")
+def enter_house():
+	global current_rooms
+	if current_room is not corridor or prison:
+		print("There is no living room")
+		return
+	elif key1 is not in player_inventory
+	    print("you need the key1 to enter the living room")
+	    return
+	else:
+		current_room = living_room
+		print("You unlocked the door")
+		print(current_room)
+
+
+
+@when("use chain_saw")
 @when("use driver")
-def escape(house):
+def escape():
 	if current_room == corridor:
 		chain_saw or driver in inventory
 		print("You succesed to escape!")
