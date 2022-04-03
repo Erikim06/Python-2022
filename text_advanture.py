@@ -50,6 +50,7 @@ prison.items.add(locked)
 room4.add(flare_gun)
 
 
+if current_room = room2 and item = key1
 
 current_room = space
 inventory = Bag()
