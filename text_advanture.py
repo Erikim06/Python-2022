@@ -58,12 +58,12 @@ inventory = Bag()
 @when("go to room2")
 @when("go inside the room2")
 @when("go to the room2")
-def enter_house():
+def enter_room():
 	global current_rooms
 	if current_room is not room1:
 		print("These is no room2")
 		return
-	elif key1 is not in player_inventory
+	elif key1 is not in player_inventory:
 	    print("you need the key1 to enter the room2")
 	    return
 	else:
@@ -76,12 +76,12 @@ def enter_house():
 @when("go to living room")
 @when("go inside the living room")
 @when("go to the living room")
-def enter_house():
+def enter_room():
 	global current_rooms
 	if current_room is not corridor or prison:
 		print("There is no living room")
 		return
-	elif key1 is not in player_inventory
+	elif key1 is not in player_inventory:
 	    print("you need the key1 to enter the living room")
 	    return
 	else:
@@ -89,16 +89,35 @@ def enter_house():
 		print("You unlocked the door")
 		print(current_room)
 
-
-
-@when("use chain_saw")
-@when("use driver")
-def escape():
-	if current_room == corridor:
-		chain_saw or driver in inventory
-		print("You succesed to escape!")
+@when("enter prison")
+@when("go to prison")
+@when("go to the prison")
+@when("go inside the prison")
+def enter_room():
+	global current_rooms
+	if current_room is not master_room or living_room:
+		print("These is no prison arounfd you")
+	elif key2 is not in player_inventory:
+		print("You need the key2 to ebter the prison")
 	else:
-		print("You can't use it")
+		print("You entered the prison")
+
+
+
+
+
+
+Front_door = 30
+
+if Front_door == 0:
+	print("You have escaped the house")
+
+
+@when("use hammer")
+def escape(house):
+	if hammer in player_inventory and current_room == corridor
+	
+
 
 
 
