@@ -54,6 +54,9 @@ room4.items.add(flare_gun)
 current_room = room1
 inventory = Bag()
 
+
+
+
 @when("enter room2")
 @when("go to room2")
 @when("go inside the room2")
@@ -98,7 +101,7 @@ def enter_room():
 	if current_room is not master_room or living_room:
 		print("These is no prison arounfd you")
 	elif key2 is not in player_inventory:
-		print("You need the key2 to ebter the prison")
+		print("You need the key2 to enter the prison")
 	else:
 		print("You entered the prison")
 
@@ -107,16 +110,54 @@ def enter_room():
 
 
 
-Front_door = 30
+front_door = 30
 
-if Front_door == 0:
+if front_door == 0:
 	print("You have escaped the house")
+	
 
 
 @when("use hammer")
 def escape(house):
-	if hammer in player_inventory and current_room == corridor
+	if hammer in player_inventory and current_room == corridor and front_door ==30:
+		print("You have damaged the front_door but not quite there.")
+		front_door = 20
+	elif hammer in player_inventory and current_room == corridor and front_door ==20:
+		print("Neally there.")
+	else hammer in player_inventory and current_room == corridor and front_door ==10:
+		print("You've smashed the front door! You can now use the flare_gun.")
 	
+
+@when("use driver")
+def escape(house):
+	if driver in player_inventory and current_room == corridor and front_door ==30:
+		print("You have loosened the front door, but not there yet.")
+		front_door = 20
+	elif driver in player_inventory and current_room == corridor and front_door ==20:
+		print("You are close")
+	else driver in player_inventory and current_room == corridor and front_door ==10:
+		print("You've smashed the front door! You can now use the flare_gun.")
+	
+
+@when("use chain saw")
+def escape(house):
+	if chain saw in player_inventory and current_room == corridor and front_door ==30:
+		print(" Little bit more work to do.")
+		front_door = 20
+	elif chain saw in player_inventory and current_room == corridor and front_door ==20:
+		print("You are close")
+	else chain saw in player_inventory and current_room == corridor and front_door ==10:
+		print("You've smashed the front door! You can now use the flare_gun.")
+	
+
+@when("use flare gun")
+@when("use the flare gun")
+def escape(island):
+	if front door == 0:
+		print("GAME OVER")
+		print("You have escaped the island!")
+	else:
+		print("You can't use flare gun")
 
 
 
@@ -130,7 +171,7 @@ def pickup(item):
 		inventory.add(t)
 		print(f"You pick up the {item}")
 	else:
-		print(f"you don't see a {item}")
+		print(f"you don't see a {item}")`
 
 @when ("go DIRECTION")
 def travel(direction):
