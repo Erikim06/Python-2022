@@ -56,7 +56,8 @@ room4.items.add(flare_gun)
 current_room = room1
 inventory = Bag()
 
-
+key1_used == False
+key2_used == False
 
 """
 @when("go east")
@@ -183,36 +184,38 @@ def pickup(item):
 	else:
 		print(f"you don't see a {item}")
 
+
+
+@when("use ITEM")
+def use(item):
+	global key1_used, key2_used,current_room
+	if current_room == room1 and direction == 'east' and item == "key":
+		print("You have entered the room2.")
+		key1_used = True
+	elif current_room == corridor and direction == 'east' and item == "key":
+		print("You have entered the room4.")
+		key1_used = True
+	elif current_room == prison and direction == 'west' and item == "key":
+		print("You have entered the room4.")
+	
+		key1_used = True
+	elif current_room == master_room and direction == 'north' and item == "key2":
+		print("You have entered the prison")
+		key2_used = True
+	
+	elif current_room == room4 and direction == 'east' and item == "key2":
+		print("You have entered the prison")
+		key2_used = True
+
 @when ("go DIRECTION")
 def travel(direction):
 	global current_room
-	if current_room == room1 and direction == 'east' and inventory.find("key1"):
-		print("You have entered the room2.")
-	elif current_room == corridor and direction == 'east' and inventory.find("key1"):
-		print("You have entered the room4.")
-	elif current_room == prison and direction == 'west' and inventory.find("key1"):
-		print("You have entered the room4.")
-	
-	elif current_room == master_room and direction == 'north' and inventory.find("key2"):
-		print("You have entered the prison")
-	
-	elif current_room == room4 and direction == 'east' and inventory.find("key2"):
-		print("You have entered the prison")
-		
-		
-
-
-
-
-
 	if direction in current_room.exits():
 		current_room = current_room.exit(direction)
 		print(f"you go {direction}.")
 		print(current_room)
 
-
 @when("look at ITEM")
-@when("my ITEM")
 @when("my ITEM")
 def look_at(item):
 	if item in inventory:
