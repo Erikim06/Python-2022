@@ -26,6 +26,4 @@ print (str(55+66))
 print (int(55.0))
 print (float(44+10))
 print (int(5/2))
-print ("Dynamite \n cause ah ah i'm in a star to night")
-print ("I am a iron man")
-print ("string is a cotton line")	
+

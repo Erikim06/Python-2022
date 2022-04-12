@@ -22,3 +22,4 @@ players_number_of_laps = 1 #19
 ammunition_left = 8 #20
 current_bear = 8 #21
 players_current speed = 300 #22 
+
