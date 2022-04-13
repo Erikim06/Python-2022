@@ -140,20 +140,20 @@ def pickup(item):
 @when ("go DIRECTION")
 def travel(direction):
 	global current_room
-	if current_room == room1 and direction == 'east' and item == "key":
+	if current_room == room1 and direction == 'east' and Item == 'key':
 		print("You have entered the room2.")
 		
-	elif current_room == corridor and direction == 'east' and item == "key":
+	elif current_room == corridor and direction == 'east' and Item == 'key':
 		print("You have entered the room4.")
 	
-	elif current_room == prison and direction == 'west' and item == "key":
+	elif current_room == prison and direction == 'west' and Item == 'key':
 		print("You have entered the room4.")
 	
 		
-	elif current_room == master_room and direction == 'north' and item == "key2":
+	elif current_room == master_room and direction == 'north' and Item == 'key2':
 		print("You have entered the prison")
 		
-	elif current_room == room4 and direction == 'east' and item == "key2":
+	elif current_room == room4 and direction == 'east' and Item == 'key2':
 		print("You have entered the prison")
 
 	if direction in current_room.exits():
